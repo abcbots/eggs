@@ -1,4 +1,3 @@
-require 'eggs'
 
 #== Eggs: Scramble
 # Eggs.scramble("dog", "dj4ki6bs9edh4jdu8mgbg3fi7s63eg") #=> ""
