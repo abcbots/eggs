@@ -1,7 +1,5 @@
 module Eggs
 
-  require 'action_view'
-
 #== Eggs: Scramble
 # Eggs.scramble("dog", "dj4ki6bs9edh4jdu8mgbg3fi7s63eg") #=> ""
 # Eggs.scramble("cat", "dj4ki6bs9edh4jdu8mgbg3fi7s63eg") #=> ""
@@ -34,9 +32,9 @@ module Eggs
   def self.key(length=30)
     length=length.to_i
     s = SecureRandom.base64(length).to_s
-    s = s.gsub("/", SecureRandom.hex(1).first.to_s)
-    s = s.gsub("+", SecureRandom.hex(1).first.to_s)
-    return s.gsub("==", SecureRandom.hex(1).first.to_s)
+    s = s.gsub("/", SecureRandom.hex(1).split("").first.to_s)
+    s = s.gsub("+", SecureRandom.hex(1).split("").first.to_s)
+    return s.gsub("==", SecureRandom.hex(1).split("").first.to_s)
   end
 
 end
