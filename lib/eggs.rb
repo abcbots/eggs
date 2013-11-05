@@ -1,3 +1,6 @@
+module Eggs
+
+  require 'action_view'
 
 #== Eggs: Scramble
 # Eggs.scramble("dog", "dj4ki6bs9edh4jdu8mgbg3fi7s63eg") #=> ""
@@ -36,3 +39,4 @@
     return s.gsub("==", SecureRandom.hex(1).first.to_s)
   end
 
+end
