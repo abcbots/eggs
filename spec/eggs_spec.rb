@@ -6,7 +6,7 @@ describe "Eggs" do
 
   it "generates keys" do
     puts 
-    puts "# == Eggs: (generate a random) key"
+    puts "# == Eggs.key"
     puts "require 'eggs'"
     puts "Eggs.key == \"#{Eggs.key}\""
     puts "Eggs.key.size == #{Eggs.key.size}"
@@ -18,7 +18,7 @@ describe "Eggs" do
 
   it "scrambles" do
     puts
-    puts "# == Eggs: scramble (text, key)"
+    puts "# == Eggs.scramble(text, key)"
     puts "require 'eggs'"
     puts "key = \"#{key = Eggs.key}\""
     puts "text = scrambled = \"#{text = scrambled = "dog"}\""
@@ -31,7 +31,7 @@ describe "Eggs" do
 
   it "unscrambles" do
     puts
-    puts "# == Eggs: unscramble (text, key)"
+    puts "# == Eggs.unscramble(text, key)"
     puts "require 'eggs'"
     puts "key == \"#{key = Eggs.key}\""
     puts "text == \"#{text = "dog"}\""
@@ -45,7 +45,7 @@ describe "Eggs" do
 
   it "uses OpenSSL libraries to encrypt text with a key" do
     puts
-    puts "# == Eggs: aes (command, text, key)"
+    puts "# == Eggs.aes(command, text, key)"
     puts "require 'eggs'"
     puts "key == \"#{key = Eggs.key}\""
     puts "text == \"#{text = "dog"}\""

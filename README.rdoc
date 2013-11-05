@@ -1,6 +1,65 @@
-= eggs
+= Eggs
 
-Description goes here.
+  Eggs handles the encryption and decryption of text and strings.
+  Where text is the actual content you wish to encrypt,
+  and key is the text you wish to decrypt with,
+  just call
+  Eggs.scramble(text, key)
+  to encrypt,
+  and call
+  Eggs.unscramble(text, key)
+  to decrypt.
+  If you need a key,
+  just call,
+  Eggs.key.
+  Happy coding!
+
+= Rails 4
+
+  gem 'eggs'
+
+  bundle
+
+  gem install eggs
+
+= Usage
+
+== Eggs.scramble(text, key)
+
+  require 'eggs'
+  key = "8sFpMOjupOgV9STuwPqOXBBqUDEcEy"
+  text = scrambled = "dog"
+  scrambled == text #=> true
+  scrambled = Eggs.scramble(text, key) = "%ED%B6%E7%88%EC%A6g%81%17%A8%92]J%8A[%9C"
+  scrambled == text #=> false
+
+== Eggs.unscramble(text, key)
+
+  require 'eggs'
+  key == "TxgOH3A8bqwd8L0jbcWoAA9ErKyppY"
+  text == "dog"
+  scrambled = Eggs.scramble(text, key) = "%05d%E2%A7+%FE%1D%16m%3C%B8%9F%D1%7D%5El"
+  scrambled == text #=> false
+  unscrambled = Eggs.unscramble(text, key) = "dog"
+  unscrambled == text #=> true
+
+== Eggs.key
+
+  require 'eggs'
+  Eggs.key == "ENWi9n7n806DMU5USHE7Wbzy8iOZlc"
+  Eggs.key.size == 30
+  Eggs.key(10) == "6H3emLzzgw"
+  Eggs.key(10).size == 10
+  Eggs.key(3) == "aPY"
+  Eggs.key(3).size == 3
+  
+== Eggs.aes(command, text, key)
+
+  require 'eggs'
+  key == "BBCYjirFf8tqs4D3nFhukrRrtK144E"
+  text == "dog"
+  Eggs.aes(:encrypt, text, key) == "�=c�O�m2`�V�p��Y�<m:"
+  (2013-11-05: http://stackoverflow.com/questions/8489486/encryption-and-decryption-algorithm-in-rails)
 
 == Contributing to eggs
  
