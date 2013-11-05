@@ -11,6 +11,7 @@ group :test do
   gem "rdoc", "~> 3.12"
   gem "cucumber", ">= 0"
   gem "bundler", "~> 1.0"
+  gem "pry"
   gem "jeweler", "~> 1.8.7"
-  gem 'simplecov', :require => false # https://github.com/colszowka/simplecov
+  gem "simplecov", :require => false # https://github.com/colszowka/simplecov
 end
