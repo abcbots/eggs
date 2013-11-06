@@ -12,8 +12,14 @@ module Eggs
   # scrambled = Eggs.scramble(text, key) = "%ED%B6%E7%88%EC%A6g%81%17%A8%92]J%8A[%9C"
   # scrambled == text #=> false
   #
-  def self.scramble(text, key)
-    return URI.encode aes(:encrypt, key, text)
+  def self.scramble(text=nil, key=nil)
+    text||=text.to_s
+    key||=key.to_s
+    if text!="" and key!=""
+      return URI.encode aes(:encrypt, key, text)
+    else
+      return ""
+    end
   end
 
 # == Eggs: unscramble (text, key)
@@ -25,8 +31,14 @@ module Eggs
   # unscrambled = Eggs.unscramble(text, key) = "dog"
   # unscrambled == text #=> true
   #
-  def self.unscramble(text, key)
-    aes(:decrypt, key, URI.decode(text))
+  def self.unscramble(text=nil, key=nil)
+    text||=text.to_s
+    key||=key.to_s
+    if text!="" and key!=""
+      return aes(:decrypt, key, URI.decode(text))
+    else
+      return ""
+    end
   end
 
 # == Eggs: (generate a random) key
@@ -53,7 +65,9 @@ module Eggs
   # Eggs.aes(:encrypt, text, key) == "�=c�O�m2`�V�p��Y�<m:"
   # Src: http://stackoverflow.com/questions/8489486/encryption-and-decryption-algorithm-in-rails
   # 
-  def self.aes(m,k,t)
+  def self.aes(m,k=nil,t=nil)
+    k||=k.to_s
+    t||=t.to_s
     (aes = OpenSSL::Cipher::Cipher.new('aes-256-cbc').send(m)).key = Digest::SHA256.digest(k)
     return aes.update(t) << aes.final
   end
